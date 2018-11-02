@@ -29,7 +29,7 @@
 		65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwift_Thunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReSwift_Thunk.h; sourceTree = "<group>"; };
 		65A3D6D9218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65A3D6DE218B89A60075CB92 /* ReSwift-ThunkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-ThunkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A3D6E3218B89A60075CB92 /* ReSwift_ThunkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwift_ThunkTests.swift; sourceTree = "<group>"; };
 		65A3D6E5218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6EF218B8A300075CB92 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */,
-				65A3D6DE218B89A60075CB92 /* ReSwift-ThunkTests.xctest */,
+				65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,9 +120,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		65A3D6D4218B89A60075CB92 /* ReSwift-Thunk */ = {
+		65A3D6D4218B89A60075CB92 /* ReSwift-Thunk-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65A3D6E9218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk" */;
+			buildConfigurationList = 65A3D6E9218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk-iOS" */;
 			buildPhases = (
 				65A3D6D0218B89A60075CB92 /* Headers */,
 				65A3D6D1218B89A60075CB92 /* Sources */,
@@ -133,14 +133,14 @@
 			);
 			dependencies = (
 			);
-			name = "ReSwift-Thunk";
+			name = "ReSwift-Thunk-iOS";
 			productName = "ReSwift-Thunk";
 			productReference = 65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		65A3D6DD218B89A60075CB92 /* ReSwift-ThunkTests */ = {
+		65A3D6DD218B89A60075CB92 /* ReSwift-Thunk-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65A3D6EC218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-ThunkTests" */;
+			buildConfigurationList = 65A3D6EC218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk-iOSTests" */;
 			buildPhases = (
 				65A3D6DA218B89A60075CB92 /* Sources */,
 				65A3D6DB218B89A60075CB92 /* Frameworks */,
@@ -151,9 +151,9 @@
 			dependencies = (
 				65A3D6E1218B89A60075CB92 /* PBXTargetDependency */,
 			);
-			name = "ReSwift-ThunkTests";
+			name = "ReSwift-Thunk-iOSTests";
 			productName = "ReSwift-ThunkTests";
-			productReference = 65A3D6DE218B89A60075CB92 /* ReSwift-ThunkTests.xctest */;
+			productReference = 65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -187,8 +187,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65A3D6D4218B89A60075CB92 /* ReSwift-Thunk */,
-				65A3D6DD218B89A60075CB92 /* ReSwift-ThunkTests */,
+				65A3D6D4218B89A60075CB92 /* ReSwift-Thunk-iOS */,
+				65A3D6DD218B89A60075CB92 /* ReSwift-Thunk-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +233,7 @@
 /* Begin PBXTargetDependency section */
 		65A3D6E1218B89A60075CB92 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65A3D6D4218B89A60075CB92 /* ReSwift-Thunk */;
+			target = 65A3D6D4218B89A60075CB92 /* ReSwift-Thunk-iOS */;
 			targetProxy = 65A3D6E0218B89A60075CB92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -295,6 +295,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = ReSwift_Thunk;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -352,6 +353,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = ReSwift_Thunk;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -384,7 +386,6 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-Thunk";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -415,7 +416,6 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-Thunk";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65A3D6E9218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk" */ = {
+		65A3D6E9218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65A3D6EA218B89A60075CB92 /* Debug */,
@@ -489,7 +489,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65A3D6EC218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-ThunkTests" */ = {
+		65A3D6EC218B89A60075CB92 /* Build configuration list for PBXNativeTarget "ReSwift-Thunk-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65A3D6ED218B89A60075CB92 /* Debug */,
