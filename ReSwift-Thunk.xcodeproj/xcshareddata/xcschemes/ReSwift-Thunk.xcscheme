@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
                BuildableName = "ReSwift_Thunk.framework"
-               BlueprintName = "ReSwift-Thunk-iOS"
+               BlueprintName = "ReSwift-Thunk"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "65A3D6DD218B89A60075CB92"
-               BuildableName = "ReSwift-Thunk-iOSTests.xctest"
-               BlueprintName = "ReSwift-Thunk-iOSTests"
+               BuildableName = "ReSwift-Thunk-Tests.xctest"
+               BlueprintName = "ReSwift-Thunk-Tests"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
             BuildableName = "ReSwift_Thunk.framework"
-            BlueprintName = "ReSwift-Thunk-iOS"
+            BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
             BuildableName = "ReSwift_Thunk.framework"
-            BlueprintName = "ReSwift-Thunk-iOS"
+            BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
             BuildableName = "ReSwift_Thunk.framework"
-            BlueprintName = "ReSwift-Thunk-iOS"
+            BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
