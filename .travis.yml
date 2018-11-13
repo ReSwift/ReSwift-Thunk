@@ -39,7 +39,3 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J ReSwift-Thunk
-  - test $TRAVIS_PULL_REQUEST == "false" &&
-    test $TRAVIS_BRANCH == "master" &&
-    test $UPDATE_DOCS == "true" &&
-    .scripts/update-gh-pages
