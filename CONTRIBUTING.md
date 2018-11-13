@@ -79,6 +79,6 @@ To create a new release, create a pull request targeting either `master`, or a s
 
 - [ ] Bump version number in `ReSwift-Thunk.podspec` and `Info.plist` (We follow [semver](https://semver.org/) - most importantly any breaking API change should result in a major API version bump)
 - [ ] Add the new version number and the release date to `CHANGELOG.md`
-- [ ] Create a tag off of the relevant branch (`master` for regular release) and add the relevant changelog entries to the [release list on GitHub](https://github.com/ReSwift/ReSwift/releases) 
+- [ ] Create a tag off of the relevant branch (`master` for regular release) and add the relevant changelog entries to the [release list on GitHub](https://github.com/ReSwift/ReSwift-Thunk/releases) 
 - [ ] Publish the new version to the CocoaPods trunk
 
