@@ -8,7 +8,6 @@ env:
     - LC_CTYPE=en_US.UTF-8
     - LANG=en_US.UTF-8
     - FRAMEWORK_NAME="ReSwift-Thunk"
-    - UPDATE_DOCS="true"
 
 matrix:
   include:
@@ -27,7 +26,7 @@ script:
   - xcodebuild -showsdks
   - xcodebuild
     -project "$FRAMEWORK_NAME.xcodeproj"
-    -scheme "$FRAMEWORK_NAME-$SCHEME"
+    -scheme "$FRAMEWORK_NAME"
     -sdk "$SDK"
     -destination "$DESTINATION"
     -configuration Debug
