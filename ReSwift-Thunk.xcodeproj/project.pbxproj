@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65A3D6DF218B89A60075CB92 /* ReSwift_Thunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */; };
-		65A3D6E4218B89A60075CB92 /* ReSwift_ThunkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6E3218B89A60075CB92 /* ReSwift_ThunkTests.swift */; };
+		65A3D6E4218B89A60075CB92 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6E3218B89A60075CB92 /* Tests.swift */; };
 		65A3D6E6218B89A60075CB92 /* ReSwift_Thunk.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A3D6F0218B8A300075CB92 /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6EF218B8A300075CB92 /* Thunk.swift */; };
 		65A3D6F3218C91F20075CB92 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A3D6F2218C91F20075CB92 /* ReSwift.framework */; };
@@ -30,7 +30,7 @@
 		65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReSwift_Thunk.h; sourceTree = "<group>"; };
 		65A3D6D9218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		65A3D6E3218B89A60075CB92 /* ReSwift_ThunkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwift_ThunkTests.swift; sourceTree = "<group>"; };
+		65A3D6E3218B89A60075CB92 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65A3D6E5218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6EF218B8A300075CB92 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
 		65A3D6F2218C91F20075CB92 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		65A3D6E2218B89A60075CB92 /* ReSwift-ThunkTests */ = {
 			isa = PBXGroup;
 			children = (
-				65A3D6E3218B89A60075CB92 /* ReSwift_ThunkTests.swift */,
+				65A3D6E3218B89A60075CB92 /* Tests.swift */,
 				65A3D6E5218B89A60075CB92 /* Info.plist */,
 			);
 			path = "ReSwift-ThunkTests";
@@ -222,7 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65A3D6E4218B89A60075CB92 /* ReSwift_ThunkTests.swift in Sources */,
+				65A3D6E4218B89A60075CB92 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

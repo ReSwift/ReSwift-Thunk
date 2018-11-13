@@ -14,7 +14,7 @@ import ReSwift
 private struct FakeState: StateType {}
 private struct FakeAction: Action {}
 
-class ReSwift_ThunkTests: XCTestCase {
+class Tests: XCTestCase {
 
     func testAction() {
         let middleware: Middleware<FakeState> = createThunksMiddleware()
@@ -26,7 +26,7 @@ class ReSwift_ThunkTests: XCTestCase {
         middleware(dispatch, getState)(next)(action)
         XCTAssert(nextCalled)
     }
-    
+
     func testThunk() {
         let middleware: Middleware<FakeState> = createThunksMiddleware()
         let dispatch: DispatchFunction = { _ in }
