@@ -20,6 +20,9 @@ matrix:
     - osx_image: xcode10
       env: SCHEME="tvOS"   SDK="appletvsimulator12.0"  DESTINATION="OS=12.0,name=Apple TV 4K"      SWIFT_VERSION="4.2"
 
+before_install:
+  - carthage bootstrap --platform "$SCHEME" --verbose
+
 script:
   - set -o pipefail
   - xcodebuild -version
