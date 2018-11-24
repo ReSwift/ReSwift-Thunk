@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ReSwift_Thunk
+@testable import ReSwiftThunk
 
 import ReSwift
 
