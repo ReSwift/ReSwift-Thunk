@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65A3D6DF218B89A60075CB92 /* ReSwift_Thunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */; };
+		65A3D6DF218B89A60075CB92 /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A3D6D5218B89A60075CB92 /* ReSwiftThunk.framework */; };
 		65A3D6E4218B89A60075CB92 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6E3218B89A60075CB92 /* Tests.swift */; };
 		65A3D6E6218B89A60075CB92 /* ReSwift_Thunk.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A3D6F0218B8A300075CB92 /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6EF218B8A300075CB92 /* Thunk.swift */; };
@@ -26,7 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwift_Thunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A3D6D5218B89A60075CB92 /* ReSwiftThunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwiftThunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReSwift_Thunk.h; sourceTree = "<group>"; };
 		65A3D6D9218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65A3D6DF218B89A60075CB92 /* ReSwift_Thunk.framework in Frameworks */,
+				65A3D6DF218B89A60075CB92 /* ReSwiftThunk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 		65A3D6D6218B89A60075CB92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */,
+				65A3D6D5218B89A60075CB92 /* ReSwiftThunk.framework */,
 				65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-Tests.xctest */,
 			);
 			name = Products;
@@ -133,7 +133,7 @@
 			);
 			name = "ReSwift-Thunk";
 			productName = "ReSwift-Thunk";
-			productReference = 65A3D6D5218B89A60075CB92 /* ReSwift_Thunk.framework */;
+			productReference = 65A3D6D5218B89A60075CB92 /* ReSwiftThunk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		65A3D6DD218B89A60075CB92 /* ReSwift-Thunk-Tests */ = {
@@ -403,6 +403,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-Thunk";
+				PRODUCT_NAME = ReSwiftThunk;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -430,6 +431,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-Thunk";
+				PRODUCT_NAME = ReSwiftThunk;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
