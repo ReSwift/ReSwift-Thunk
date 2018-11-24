@@ -15,6 +15,7 @@ Pod::Spec.new do |spec|
   spec.watchos.deployment_target = '2.0'
   spec.tvos.deployment_target = '9.0'
 
+  spec.module_name  = "ReSwiftThunk"
   spec.swift_version = "4.2"
   spec.source = {
     :git => "https://github.com/ReSwift/ReSwift-Thunk.git",
