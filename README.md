@@ -32,10 +32,32 @@ let thunk = Thunk<MyState> { dispatch, getState in
     }
 }
 
+// A thunk can also be a function if you want to pass on parameters
+func thunkWithParams(_ identifier: Int) -> Thunk<MyState> {
+    return Thunk<MyState> { dispatch, getState in
+        guard let state = getState() else { return }
+        
+        if state.loading {
+            return
+        }
+        
+        api.getSomethingWithId(identifier) { something in
+            if something != nil {
+                dispatch(RequestSuccess(something))
+            } else {
+                dispatch(RequestError())
+            }
+        }
+    }
+}
+
 // As the thunk type conforms to the `Action` protocol, you can dispatch it as usual, without having to implement an overload of the `dispatch` function inside the ReSwift library.
 store.dispatch(thunk)
 
-// Note that this action won't reach the reducers, instead, the thunks middleware will catch it and execute its body, producing the desired side effects.
+// You can do the same with the Thunk that requires parameters, like so
+store.dispatch(thunkWithParams(10))
+
+// Note that these actions won't reach the reducers, instead, the thunks middleware will catch it and execute its body, producing the desired side effects.
 ```
 
 ## Installation
