@@ -108,7 +108,7 @@ After checking out the project run `pod install` to get the latest supported ver
 
 ## Example Projects
 
-- [ReduxMovieDB](https://github.com/cardoso/ReduxMovieDB): A simple App that queries the tmdb.org API to display the latest movies. Allows searching and viewing details. 
+- [ReduxMovieDB](https://github.com/cardoso/ReduxMovieDB): A simple App that queries the tmdb.org API to display the latest movies. Allows searching and viewing details. [Relevant file](https://github.com/cardoso/ReduxMovieDB/blob/master/ReduxMovieDB/Thunks.swift).
 
 ## Contributing
 
