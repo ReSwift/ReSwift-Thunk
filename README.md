@@ -106,6 +106,10 @@ let package = Package(
 
 After checking out the project run `pod install` to get the latest supported version of [SwiftLint](https://github.com/realm/SwiftLint), which we use to ensure a consistent style in the codebase.
 
+## Example Projects
+
+- [ReduxMovieDB](https://github.com/cardoso/ReduxMovieDB): A simple App that queries the tmdb.org API to display the latest movies. Allows searching and viewing details. [Relevant file](https://github.com/cardoso/ReduxMovieDB/blob/master/ReduxMovieDB/Thunks.swift).
+
 ## Contributing
 
 You can find all the details on how to get started in the [Contributing Guide](/CONTRIBUTING.md).
