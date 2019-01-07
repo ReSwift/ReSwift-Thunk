@@ -23,3 +23,10 @@ public func createThunksMiddleware<State: StateType>() -> Middleware<State> {
         }
     }
 }
+
+// swiftlint:disable identifier_name
+@available(*, deprecated, renamed: "createThunksMiddleware")
+func ThunkMiddleware<State: StateType>() -> Middleware<State> {
+    return createThunksMiddleware()
+}
+// swiftlint:enable identifier_name
