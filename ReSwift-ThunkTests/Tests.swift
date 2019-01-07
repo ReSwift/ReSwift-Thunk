@@ -13,6 +13,9 @@ import ReSwift
 
 private struct FakeState: StateType {}
 private struct FakeAction: Action {}
+private func fakeReducer(action: Action, state: FakeState?) -> FakeState {
+    return state ?? FakeState()
+}
 
 class Tests: XCTestCase {
 
@@ -40,5 +43,19 @@ class Tests: XCTestCase {
         middleware(dispatch, getState)(next)(thunk)
         XCTAssertFalse(nextCalled)
         XCTAssert(thunkBodyCalled)
+    }
+
+    func testMiddlewareInsertion() {
+        let store = Store(
+            reducer: fakeReducer,
+            state: nil,
+            middleware: [createThunksMiddleware()]
+        )
+        var thunkBodyCalled = false
+        let thunk = Thunk<FakeState> { _, _ in
+            thunkBodyCalled = true
+        }
+        store.dispatch(thunk)
+        XCTAssertTrue(thunkBodyCalled)
     }
 }
