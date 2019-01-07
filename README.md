@@ -74,7 +74,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 pod 'ReSwift'
-pod 'ReSwift-Thunk'
+pod 'ReSwiftThunk'
 ```
 
 And run `pod install`.
