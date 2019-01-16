@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = "ReSwift-Thunk"
+  spec.name         = "ReSwiftThunk"
   spec.version      = "1.0.0-pre"
   spec.summary      = "Thunk middleware for ReSwift."
   spec.description  = <<-DESC
