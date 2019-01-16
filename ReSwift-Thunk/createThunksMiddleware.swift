@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-public func createThunksMiddleware<State: StateType>() -> Middleware<State> {
+public func createThunksMiddleware<State>() -> Middleware<State> {
     return { dispatch, getState in
         return { next in
             return { action in
