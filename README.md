@@ -68,12 +68,6 @@ ReSwift-Thunk requires the [ReSwift](https://github.com/ReSwift/ReSwift/) base m
 
 You can install ReSwift-Thunk via CocoaPods by adding it to your `Podfile`:
 ```
-use_frameworks!
-
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-
-pod 'ReSwift'
 pod 'ReSwiftThunk'
 ```
 
