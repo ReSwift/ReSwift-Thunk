@@ -17,3 +17,6 @@ public struct Thunk<State>: Action {
         self.body = body
     }
 }
+
+@available(*, deprecated, renamed: "Thunk")
+typealias ThunkAction = Thunk
