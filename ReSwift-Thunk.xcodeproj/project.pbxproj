@@ -35,6 +35,8 @@
 		65A3D6EF218B8A300075CB92 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
 		65A3D6F2218C91F20075CB92 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		65A3D6F4218C92420075CB92 /* createThunksMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createThunksMiddleware.swift; sourceTree = "<group>"; };
+		D4286E7721EFED3F00D5749B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		D4286E7821EFED4D00D5749B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		65A3D6CB218B89A60075CB92 = {
 			isa = PBXGroup;
 			children = (
+				D4286E7721EFED3F00D5749B /* CHANGELOG.md */,
+				D4286E7821EFED4D00D5749B /* README.md */,
 				65A3D6D7218B89A60075CB92 /* ReSwift-Thunk */,
 				65A3D6E2218B89A60075CB92 /* ReSwift-ThunkTests */,
 				65A3D6D6218B89A60075CB92 /* Products */,
