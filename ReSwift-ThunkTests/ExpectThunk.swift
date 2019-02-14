@@ -11,8 +11,8 @@ import ReSwift
 
 @testable import ReSwiftThunk
 
-class ExpectThunk<State: StateType>: XCTestExpectation {
-    private typealias ActionMatcher = (Action) -> Void
+public class ExpectThunk<State: StateType>: XCTestExpectation {
+    public typealias ActionMatcher = (Action) -> Void
     private var dispatch: DispatchFunction {
         return { action in
             let matcher = self.expectedActions.remove(at: 0)
@@ -34,7 +34,7 @@ class ExpectThunk<State: StateType>: XCTestExpectation {
         }
     }
     private let thunk: Thunk<State>
-    init(_ thunk: Thunk<State>, description: String? = nil) {
+    public init(_ thunk: Thunk<State>, description: String? = nil) {
         self.thunk = thunk
         super.init(description: description ?? "\(ExpectThunk.self)")
     }
@@ -45,10 +45,14 @@ class ExpectThunk<State: StateType>: XCTestExpectation {
 }
 
 extension ExpectThunk {
-    func dispatches<A: Action & Equatable>(_ expected: A, file: StaticString = #file, line: UInt = #line) -> Self {
+    public func dispatches<A: Action & Equatable>(_ expected: A, file: StaticString = #file, line: UInt = #line) -> Self {
         expectedActions.append({ received in
             XCTAssert(received as? A == expected, "dispatched action does not equal expected: \(received) \(expected)", file: file, line: line)
         })
+        return self
+    }
+    public func dispatches(_ matcher: @escaping ActionMatcher) -> Self {
+        expectedActions.append(matcher)
         return self
     }
 }
