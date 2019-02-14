@@ -12,7 +12,8 @@ import XCTest
 import ReSwift
 
 private struct FakeState: StateType {}
-private struct FakeAction: Action {}
+private struct FakeAction: Action, Equatable {}
+private struct AnotherFakeAction: Action, Equatable {}
 private func fakeReducer(action: Action, state: FakeState?) -> FakeState {
     return state ?? FakeState()
 }
@@ -58,4 +59,36 @@ class Tests: XCTestCase {
         store.dispatch(thunk)
         XCTAssertTrue(thunkBodyCalled)
     }
+    
+    func testExpectThunk() {
+        let thunk = Thunk<FakeState> { dispatch, getState in
+            dispatch(FakeAction())
+            XCTAssertNotNil(getState())
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                dispatch(AnotherFakeAction())
+                XCTAssertNotNil(getState())
+                XCTAssertNil(getState())
+            }
+            dispatch(FakeAction())
+        }
+        
+        let expect = ExpectThunk<FakeState>(thunk)
+            .dispatches(FakeAction())
+            .getsState(FakeState())
+            .dispatches(FakeAction())
+            .dispatches(AnotherFakeAction())
+            .getsState(FakeState())
+            .run()
+        
+        /* NOTE: this will fail as it asserts order!
+         let expect = ExpectThunk<FakeState>(thunk)
+         .dispatches(FakeAction())
+         .dispatches(AnotherFakeAction())
+         .dispatches(FakeAction())
+         .run()
+         */
+        
+        wait(for: [expect], timeout: 1.0)
+    }
+    
 }
