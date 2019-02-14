@@ -71,7 +71,6 @@ class Tests: XCTestCase {
             }
             dispatch(FakeAction())
         }
-        
         let expect = ExpectThunk<FakeState>(thunk)
             .dispatches(FakeAction())
             .getsState(FakeState())
@@ -79,7 +78,6 @@ class Tests: XCTestCase {
             .dispatches(AnotherFakeAction())
             .getsState(FakeState())
             .run()
-        
         /* NOTE: this will fail as it asserts order!
          let expect = ExpectThunk<FakeState>(thunk)
          .dispatches(FakeAction())
@@ -87,8 +85,6 @@ class Tests: XCTestCase {
          .dispatches(FakeAction())
          .run()
          */
-        
         wait(for: [expect], timeout: 1.0)
     }
-    
 }
