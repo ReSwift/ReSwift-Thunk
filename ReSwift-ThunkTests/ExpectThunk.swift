@@ -11,19 +11,21 @@ import ReSwift
 
 @testable import ReSwiftThunk
 
-public class ExpectThunk<State: StateType>: XCTestExpectation {
-    public typealias ActionMatcher = (Action) -> Void
+// TODO: no longer allow subclassing
+public class ExpectThunk<State: StateType> {
+    public typealias ActionAssertion = (Action) -> Void
     private var dispatch: DispatchFunction {
         return { action in
-            let matcher = self.expectedActions.remove(at: 0)
-            matcher(action)
-            if self.expectedActions.count == 0 {
-                self.fulfill()
+            let actionAssertion = self.actionAssertions.remove(at: 0)
+            actionAssertion(action)
+            if self.actionAssertions.count == 0 {
+                self.expectation.fulfill()
             }
         }
     }
-    private var expectedActions = [ActionMatcher]()
+    private var actionAssertions = [ActionAssertion]()
     private var expectedStates = [State]()
+    private var expectation: XCTestExpectation
     private var getState: () -> State? {
         return {
             if self.expectedStates.count > 0 {
@@ -36,23 +38,19 @@ public class ExpectThunk<State: StateType>: XCTestExpectation {
     private let thunk: Thunk<State>
     public init(_ thunk: Thunk<State>, description: String? = nil) {
         self.thunk = thunk
-        super.init(description: description ?? "\(ExpectThunk.self)")
-    }
-    func run() -> Self {
-        self.thunk.body(dispatch, getState)
-        return self
+        expectation = XCTestExpectation(description: description ?? "\(ExpectThunk.self)")
     }
 }
 
 extension ExpectThunk {
     public func dispatches<A: Action & Equatable>(_ expected: A, file: StaticString = #file, line: UInt = #line) -> Self {
-        expectedActions.append({ received in
+        actionAssertions.append({ received in
             XCTAssert(received as? A == expected, "dispatched action does not equal expected: \(received) \(expected)", file: file, line: line)
         })
         return self
     }
-    public func dispatches(_ matcher: @escaping ActionMatcher) -> Self {
-        expectedActions.append(matcher)
+    public func dispatches(_ matcher: @escaping ActionAssertion) -> Self {
+        actionAssertions.append(matcher)
         return self
     }
 }
@@ -61,5 +59,12 @@ extension ExpectThunk {
     func getsState(_ state: State) -> Self {
         expectedStates.append(state)
         return self
+    }
+}
+
+extension ExpectThunk {
+    func run() -> XCTestExpectation {
+        thunk.body(dispatch, getState)
+        return expectation
     }
 }
