@@ -11,23 +11,23 @@ import ReSwift
 import ReSwiftThunk
 
 public class ExpectThunk<State: StateType> {
-    public typealias ActionAssertion = (Action) -> Void
+    public typealias DispatchAssertion = (Action) -> Void
+    private var dispatchAssertions = [DispatchAssertion]()
     private var dispatch: DispatchFunction {
         return { action in
-            let actionAssertion = self.actionAssertions.remove(at: 0)
+            let actionAssertion = self.dispatchAssertions.remove(at: 0)
             actionAssertion(action)
-            if self.actionAssertions.count == 0 {
+            if self.dispatchAssertions.count == 0 {
                 self.expectation.fulfill()
             }
         }
     }
-    private var actionAssertions = [ActionAssertion]()
-    private var expectedStates = [State]()
     private var expectation: XCTestExpectation
+    private var providedStates = [State]()
     private var getState: () -> State? {
         return {
-            if self.expectedStates.count > 0 {
-                return self.expectedStates.removeFirst()
+            if self.providedStates.count > 0 {
+                return self.providedStates.removeFirst()
             } else {
                 return nil
             }
@@ -42,20 +42,20 @@ public class ExpectThunk<State: StateType> {
 
 extension ExpectThunk {
     public func dispatches<A: Action & Equatable>(_ expected: A, file: StaticString = #file, line: UInt = #line) -> Self {
-        actionAssertions.append({ received in
+        dispatchAssertions.append({ received in
             XCTAssert(received as? A == expected, "dispatched action does not equal expected: \(received) \(expected)", file: file, line: line)
         })
         return self
     }
-    public func dispatches(_ matcher: @escaping ActionAssertion) -> Self {
-        actionAssertions.append(matcher)
+    public func dispatches(_ matcher: @escaping DispatchAssertion) -> Self {
+        dispatchAssertions.append(matcher)
         return self
     }
 }
 
 extension ExpectThunk {
     func getsState(_ state: State) -> Self {
-        expectedStates.append(state)
+        providedStates.append(state)
         return self
     }
 }
