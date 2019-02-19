@@ -8,10 +8,8 @@
 
 import XCTest
 import ReSwift
+import ReSwiftThunk
 
-@testable import ReSwiftThunk
-
-// TODO: no longer allow subclassing
 public class ExpectThunk<State: StateType> {
     public typealias ActionAssertion = (Action) -> Void
     private var dispatch: DispatchFunction {
@@ -64,7 +62,9 @@ extension ExpectThunk {
 
 extension ExpectThunk {
     func run() -> XCTestExpectation {
-        thunk.body(dispatch, getState)
+        let next: DispatchFunction = { _ in }
+        let middleware = createThunksMiddleware()(dispatch, getState)(next)
+        middleware(thunk)
         return expectation
     }
 }
