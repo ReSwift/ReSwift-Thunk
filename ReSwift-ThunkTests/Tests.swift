@@ -80,17 +80,6 @@ class Tests: XCTestCase {
             .dispatches(AnotherFakeAction())
             .getsState(FakeState())
             .run()
-        /* NOTE: this will fail as it asserts order!
-         let expect = ExpectThunk<FakeState>(thunk)
-         .dispatches(FakeAction())
-         .getsState(FakeState())
-         .dispatches(AnotherFakeAction())
-         .dispatches {
-            XCTAssert($0 as? FakeAction == FakeAction())
-         }
-         .getsState(FakeState())
-         .run()
-         */
         wait(for: [expect], timeout: 1.0)
     }
 }
