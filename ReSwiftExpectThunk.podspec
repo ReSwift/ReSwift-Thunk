@@ -22,6 +22,8 @@ Pod::Spec.new do |spec|
     :tag => spec.version.to_s }
   spec.source_files = "ReSwift-ThunkTests/ExpectThunk.swift"
 
-  spec.framework    = 'XCTest'
+  spec.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO" }
+  spec.framework    = "XCTest"
+  spec.dependency "ReSwift", "~> 4.0"
   spec.dependency "ReSwiftThunk"
 end
