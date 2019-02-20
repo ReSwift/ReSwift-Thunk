@@ -71,7 +71,7 @@ class Tests: XCTestCase {
             }
             dispatch(FakeAction())
         }
-        let expect = ExpectThunk<FakeState>(thunk)
+        let expect = ExpectThunk(thunk)
             .dispatches(FakeAction())
             .getsState(FakeState())
             .dispatches {
