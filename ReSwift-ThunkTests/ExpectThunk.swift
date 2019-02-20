@@ -59,14 +59,14 @@ extension ExpectThunk {
 }
 
 extension ExpectThunk {
-    func getsState(_ state: State) -> Self {
+    public func getsState(_ state: State) -> Self {
         providedStates.append(state)
         return self
     }
 }
 
 extension ExpectThunk {
-    func run() -> XCTestExpectation {
+    public func run() -> XCTestExpectation {
         createThunksMiddleware()(dispatch, getState)({ _ in })(thunk)
         return expectation
     }
