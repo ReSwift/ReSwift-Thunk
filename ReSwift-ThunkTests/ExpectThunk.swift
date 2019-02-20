@@ -40,9 +40,16 @@ public class ExpectThunk<State: StateType> {
 }
 
 extension ExpectThunk {
-    public func dispatches<A: Action & Equatable>(_ expected: A, file: StaticString = #file, line: UInt = #line) -> Self {
+    public func dispatches<A: Action & Equatable>(_ expected: A,
+                                                  file: StaticString = #file,
+                                                  line: UInt = #line) -> Self {
         dispatchAssertions.append({ received in
-            XCTAssert(received as? A == expected, "dispatched action does not equal expected: \(received) \(expected)", file: file, line: line)
+            XCTAssert(
+                received as? A == expected,
+                "dispatched action does not equal expected: \(received) \(expected)",
+                file: file,
+                line: line
+            )
         })
         return self
     }
@@ -61,9 +68,7 @@ extension ExpectThunk {
 
 extension ExpectThunk {
     func run() -> XCTestExpectation {
-        let next: DispatchFunction = { _ in }
-        let middleware = createThunksMiddleware()(dispatch, getState)(next)
-        middleware(thunk)
+        createThunksMiddleware()(dispatch, getState)({ _ in })(thunk)
         return expectation
     }
 }
