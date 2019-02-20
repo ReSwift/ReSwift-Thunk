@@ -18,7 +18,6 @@ public class ExpectThunk<State: StateType> {
             guard self.dispatchAssertions.count > 0 else {
                 return
             }
-            
             self.dispatchAssertions.remove(at: 0)(action)
             if self.dispatchAssertions.count == 0 {
                 self.expectation.fulfill()
