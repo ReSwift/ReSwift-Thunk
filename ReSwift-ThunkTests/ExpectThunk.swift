@@ -18,11 +18,11 @@ public class ExpectThunk<State: StateType> {
     private var dispatchAssertions = [DispatchAssertion]()
     private var dispatch: DispatchFunction {
         return { action in
-            guard self.dispatchAssertions.count > 0 else {
+            guard self.dispatchAssertions.isEmpty == false else {
                 return
             }
             self.dispatchAssertions.remove(at: 0)(action)
-            if self.dispatchAssertions.count == 0 {
+            if self.dispatchAssertions.isEmpty {
                 self.expectation.fulfill()
             }
         }
@@ -31,7 +31,7 @@ public class ExpectThunk<State: StateType> {
     private var providedStates = [State]()
     private var getState: () -> State? {
         return {
-            return self.providedStates.count > 0 ? self.providedStates.removeFirst() : nil
+            return self.providedStates.isEmpty ? nil : self.providedStates.removeFirst()
         }
     }
     private let thunk: Thunk<State>
