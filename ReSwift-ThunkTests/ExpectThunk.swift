@@ -8,7 +8,6 @@
 
 import XCTest
 import ReSwift
-import ReSwiftThunk
 
 public class ExpectThunk<State: StateType> {
     public typealias DispatchAssertion = (Action) -> Void
