@@ -9,6 +9,10 @@
 import XCTest
 import ReSwift
 
+#if RESWIFT_THUNKTESTS
+import ReSwiftThunk
+#endif
+
 public class ExpectThunk<State: StateType> {
     public typealias DispatchAssertion = (Action) -> Void
     private var dispatchAssertions = [DispatchAssertion]()

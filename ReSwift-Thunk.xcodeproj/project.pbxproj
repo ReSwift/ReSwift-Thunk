@@ -462,6 +462,7 @@
 					"@loader_path/../Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
+				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -484,6 +485,7 @@
 					"@loader_path/../Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
+				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
