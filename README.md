@@ -60,6 +60,23 @@ store.dispatch(thunkWithParams(10))
 // Note that these actions won't reach the reducers, instead, the thunks middleware will catch it and execute its body, producing the desired side effects.
 ```
 
+## Testing
+
+The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and contents of `dispatch` actions as well as the dependencies on `getState` contained within a thunk.
+
+```swift
+let expect = ExpectThunk(thunk)
+        .getsState(RequestState(loading: false))
+        // If the action is Equatable it will be asserted for equality with `dispatches`.
+        .dispatches(RequestStart())
+        .dispatches { action in
+            XCTAssert(action.something == expectedSomething)
+        }
+        .run()
+
+wait(for: [expect], timeout: someTimeout)
+```
+
 ## Installation
 
 ReSwift-Thunk requires the [ReSwift](https://github.com/ReSwift/ReSwift/) base module.
@@ -68,7 +85,13 @@ ReSwift-Thunk requires the [ReSwift](https://github.com/ReSwift/ReSwift/) base m
 
 You can install ReSwift-Thunk via CocoaPods by adding it to your `Podfile`:
 ```
-pod 'ReSwiftThunk'
+target 'TARGET' do
+    pod 'ReSwiftThunk'
+end
+
+target 'TARGET-TESTS' do
+    pod 'ReSwiftThunk/ExpectThunk'
+end
 ```
 
 And run `pod install`.
