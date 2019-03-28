@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "ReSwift-Thunk",
     products: [
-      .executable(name: "ReSwift-Thunk", targets: ["ReSwift-Thunk"]),
+      .executable(name: "ReSwift-Thunk", targets: ["ReSwift-Thunk"])
     ],
     dependencies: [
       .package(url: "https://github.com/ReSwift/ReSwift", .upToNextMajor(from: "4.1.1"))
@@ -15,7 +15,7 @@ let package = Package(
         name: "ReSwift-Thunk",
         dependencies: [
           "ReSwift"
-        ], 
+        ],
         path: "ReSwift-Thunk"
       )
     ]
