@@ -12,7 +12,7 @@ import XCTest
 import ReSwift
 
 private struct FakeState: StateType {}
-private struct FakeAction: Action, Equatable {}
+private struct FakeAction: Action {}
 private struct AnotherFakeAction: Action, Equatable {}
 private func fakeReducer(action: Action, state: FakeState?) -> FakeState {
     return state ?? FakeState()
@@ -72,10 +72,12 @@ class Tests: XCTestCase {
             dispatch(FakeAction())
         }
         let expect = ExpectThunk(thunk)
-            .dispatches(FakeAction())
+            .dispatches {
+                XCTAssert($0 is FakeAction)
+            }
             .getsState(FakeState())
             .dispatches {
-                XCTAssert($0 as? FakeAction == FakeAction())
+                XCTAssert($0 is FakeAction)
             }
             .dispatches(AnotherFakeAction())
             .getsState(FakeState())
