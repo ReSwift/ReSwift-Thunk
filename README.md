@@ -62,7 +62,7 @@ store.dispatch(thunkWithParams(10))
 
 ## Testing
 
-The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and actions of `dispatch` as well as the dependencies on `getState`  in a thunk.
+The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and actions of `dispatch` as well as the dependencies on `getState` in a thunk.
 
 ```swift
 ExpectThunk(thunk)

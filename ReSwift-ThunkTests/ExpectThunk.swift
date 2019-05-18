@@ -65,7 +65,7 @@ extension ExpectThunk {
             ExpectThunkAssertion(file: file, line: line) { received in
                 XCTAssert(
                     received as? A == expected,
-                    "dispatched action does not equal expected: \(received) \(expected)",
+                    "Dispatched action does not equal expected: \(received) \(expected)",
                     file: file,
                     line: line
                 )
@@ -102,10 +102,16 @@ extension ExpectThunk {
     }
 
     @discardableResult
-    public func wait(timeout seconds: TimeInterval = 1, description: String = "\(ExpectThunk.self)") -> Self {
+    public func wait(timeout seconds: TimeInterval = 1,
+                     file: StaticString = #file,
+                     line: UInt = #line,
+                     description: String = "\(ExpectThunk.self)") -> Self {
         let expectation = XCTestExpectation(description: description)
         defer {
-            let waiter = XCTWaiter().wait(for: [expectation], timeout: seconds)
+            let result = XCTWaiter().wait(for: [expectation], timeout: seconds)
+            if result != .completed {
+                XCTFail("Asynchronous wait failed", file: file, line: line)
+            }
             failLeftovers()
         }
         let dispatch: DispatchFunction = {
