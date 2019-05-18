@@ -15,17 +15,19 @@ import ReSwiftThunk
 
 private struct ExpectThunkAssertion<T> {
     fileprivate let associated: T
+    private let description: String
     private let file: StaticString
     private let line: UInt
 
-    init(file: StaticString, line: UInt, associated: T) {
+    init(description: String, file: StaticString, line: UInt, associated: T) {
         self.associated = associated
+        self.description = description
         self.file = file
         self.line = line
     }
 
     fileprivate func failed() {
-        XCTFail("This never happened", file: file, line: line)
+        XCTFail(description, file: file, line: line)
     }
 }
 
@@ -39,10 +41,8 @@ public class ExpectThunk<State: StateType> {
             self.dispatchAssertions.remove(at: 0).associated(action)
         }
     }
-    public typealias DispatchAssertion = (Action) -> Void
-    private var dispatchAssertions = [ExpectThunkAssertion<DispatchAssertion>]()
+    private var dispatchAssertions = [ExpectThunkAssertion<DispatchFunction>]()
     public var dispatched = [Action]()
-    private var expectation: XCTestExpectation?
     private var getState: () -> State? {
         return {
             return self.getStateAssertions.isEmpty ? nil : self.getStateAssertions.removeFirst().associated
@@ -62,7 +62,11 @@ extension ExpectThunk {
                                                   file: StaticString = #file,
                                                   line: UInt = #line) -> Self {
         dispatchAssertions.append(
-            ExpectThunkAssertion(file: file, line: line) { received in
+            ExpectThunkAssertion(
+                description: "Unfulfilled dispatches: \(expected)",
+                file: file,
+                line: line
+            ) { received in
                 XCTAssert(
                     received as? A == expected,
                     "Dispatched action does not equal expected: \(received) \(expected)",
@@ -77,8 +81,15 @@ extension ExpectThunk {
     @discardableResult
     public func dispatches(file: StaticString = #file,
                            line: UInt = #line,
-                           dispatch assertion: @escaping DispatchAssertion) -> Self {
-        dispatchAssertions.append(ExpectThunkAssertion(file: file, line: line, associated: assertion))
+                           dispatch assertion: @escaping DispatchFunction) -> Self {
+        dispatchAssertions.append(
+            ExpectThunkAssertion(
+                description: "Unfulfilled dispatches: dispatch assertion",
+                file: file,
+                line: line,
+                associated: assertion
+            )
+        )
         return self
     }
 }
@@ -88,7 +99,14 @@ extension ExpectThunk {
     public func getsState(_ state: State,
                           file: StaticString = #file,
                           line: UInt = #line) -> Self {
-        getStateAssertions.append(ExpectThunkAssertion(file: file, line: line, associated: state))
+        getStateAssertions.append(
+            ExpectThunkAssertion(
+                description: "Unfulfilled getsState: \(state)",
+                file: file,
+                line: line,
+                associated: state
+            )
+        )
         return self
     }
 }
@@ -108,9 +126,8 @@ extension ExpectThunk {
                      description: String = "\(ExpectThunk.self)") -> Self {
         let expectation = XCTestExpectation(description: description)
         defer {
-            let result = XCTWaiter().wait(for: [expectation], timeout: seconds)
-            if result != .completed {
-                XCTFail("Asynchronous wait failed", file: file, line: line)
+            if XCTWaiter().wait(for: [expectation], timeout: seconds) != .completed {
+                XCTFail("Asynchronous wait failed: unfulfilled dispatches", file: file, line: line)
             }
             failLeftovers()
         }
