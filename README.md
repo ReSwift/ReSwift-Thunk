@@ -62,19 +62,17 @@ store.dispatch(thunkWithParams(10))
 
 ## Testing
 
-The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and contents of `dispatch` actions as well as the dependencies on `getState` contained within a thunk.
+The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and actions of `dispatch` as well as the dependencies on `getState`  in a thunk.
 
 ```swift
-let expect = ExpectThunk(thunk)
-        .getsState(RequestState(loading: false))
-        // If the action is Equatable it will be asserted for equality with `dispatches`.
-        .dispatches(RequestStart())
-        .dispatches { action in
-            XCTAssert(action.something == expectedSomething)
-        }
-        .run()
-
-wait(for: [expect], timeout: someTimeout)
+ExpectThunk(thunk)
+    .getsState(RequestState(loading: false))
+    // If the action is Equatable it will be asserted for equality with `dispatches`.
+    .dispatches(RequestStart())
+    .dispatches { action in
+        XCTAssert(action.something == expectedSomething)
+    }
+    .wait() // or simply run() for synchronous flows
 ```
 
 ## Installation

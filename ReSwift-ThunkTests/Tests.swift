@@ -59,19 +59,36 @@ class Tests: XCTestCase {
         store.dispatch(thunk)
         XCTAssertTrue(thunkBodyCalled)
     }
-    
-    func testExpectThunk() {
+
+    func testExpectThunkRuns() {
+        let thunk = Thunk<FakeState> { dispatch, getState in
+            dispatch(FakeAction())
+            XCTAssertNotNil(getState())
+            dispatch(FakeAction())
+        }
+        let expectThunk = ExpectThunk(thunk)
+            .dispatches {
+                XCTAssert($0 is FakeAction)
+            }
+            .getsState(FakeState())
+            .dispatches {
+                XCTAssert($0 is FakeAction)
+            }
+            .run()
+        XCTAssertEqual(expectThunk.dispatched.count, 2)
+    }
+
+    func testExpectThunkWaits() {
         let thunk = Thunk<FakeState> { dispatch, getState in
             dispatch(FakeAction())
             XCTAssertNotNil(getState())
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5) {
                 dispatch(AnotherFakeAction())
                 XCTAssertNotNil(getState())
-                XCTAssertNil(getState())
             }
             dispatch(FakeAction())
         }
-        let expect = ExpectThunk(thunk)
+        let expectThunk = ExpectThunk(thunk)
             .dispatches {
                 XCTAssert($0 is FakeAction)
             }
@@ -81,7 +98,7 @@ class Tests: XCTestCase {
             }
             .dispatches(AnotherFakeAction())
             .getsState(FakeState())
-            .run()
-        wait(for: [expect], timeout: 1.0)
+            .wait()
+        XCTAssertEqual(expectThunk.dispatched.count, 3)
     }
 }
