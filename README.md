@@ -62,7 +62,8 @@ store.dispatch(thunkWithParams(10))
 
 ## Testing
 
-The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and actions of `dispatch` as well as the dependencies on `getState` in a thunk.
+The `ExpectThunk` helper, available as a CocoaPods subspec, allows for testing the order and actions of `dispatch` as well as the
+dependencies on `getState`.
 
 ```swift
 ExpectThunk(thunk)
@@ -82,6 +83,7 @@ ReSwift-Thunk requires the [ReSwift](https://github.com/ReSwift/ReSwift/) base m
 ### CocoaPods
 
 You can install ReSwift-Thunk via CocoaPods by adding it to your `Podfile`:
+
 ```
 target 'TARGET' do
     pod 'ReSwiftThunk'
@@ -93,6 +95,11 @@ end
 ```
 
 And run `pod install`.
+
+#### A Note on Including ExpectThunk
+
+If the `ExpectThunk` subspec is used, the tests target cannot be nested in another target due to current limitations. The tests target must
+be a standalone target as shown in the snippet above.
 
 ### Carthage
 
