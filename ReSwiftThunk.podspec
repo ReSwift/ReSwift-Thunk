@@ -20,7 +20,19 @@ Pod::Spec.new do |spec|
   spec.source = {
     :git => "https://github.com/ReSwift/ReSwift-Thunk.git",
     :tag => spec.version.to_s }
-  spec.source_files = "ReSwift-Thunk"
+
+  spec.subspec "Core" do |sp|
+    sp.source_files = "ReSwift-Thunk"
+  end
+
+  spec.subspec "ExpectThunk" do |sp|
+    sp.dependency "ReSwiftThunk/Core"
+    sp.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO" }
+    sp.framework    = "XCTest"
+    sp.source_files = "ReSwift-ThunkTests/ExpectThunk.swift"
+  end
+
+  spec.default_subspec = "Core"
 
   spec.dependency "ReSwift", "~> 4.0"
 end
