@@ -8,6 +8,8 @@
 
 **Other:**
 
+- Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec
+
 # 1.1.0
 
 *Released: 01/16/2019*
