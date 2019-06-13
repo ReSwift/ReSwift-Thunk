@@ -8,7 +8,7 @@
 
 **Other:**
 
-- Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec
+- Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec (#19) -- @jjgp
 
 # 1.1.0
 
