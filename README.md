@@ -12,7 +12,7 @@ When [ReSwift](https://github.com/ReSwift/ReSwift/) is a [Redux](https://github.
 
 ```swift
 // First, you create the middleware, which needs to know the type of your `State`.
-let thunksMiddleware: Middleware<MyState> = createThunksMiddleware()
+let thunksMiddleware: Middleware<MyState> = createThunkMiddleware()
 
 // Note that it can perfectly live with other middleware in the chain.
 let store = Store<MyState>(reducer: reducer, state: nil, middleware: [thunksMiddleware])

@@ -21,7 +21,7 @@ private func fakeReducer(action: Action, state: FakeState?) -> FakeState {
 class Tests: XCTestCase {
 
     func testAction() {
-        let middleware: Middleware<FakeState> = createThunksMiddleware()
+        let middleware: Middleware<FakeState> = createThunkMiddleware()
         let dispatch: DispatchFunction = { _ in }
         let getState: () -> FakeState? = { nil }
         var nextCalled = false
@@ -32,7 +32,7 @@ class Tests: XCTestCase {
     }
 
     func testThunk() {
-        let middleware: Middleware<FakeState> = createThunksMiddleware()
+        let middleware: Middleware<FakeState> = createThunkMiddleware()
         let dispatch: DispatchFunction = { _ in }
         let getState: () -> FakeState? = { nil }
         var nextCalled = false
@@ -50,7 +50,7 @@ class Tests: XCTestCase {
         let store = Store(
             reducer: fakeReducer,
             state: nil,
-            middleware: [createThunksMiddleware()]
+            middleware: [createThunkMiddleware()]
         )
         var thunkBodyCalled = false
         let thunk = Thunk<FakeState> { _, _ in
