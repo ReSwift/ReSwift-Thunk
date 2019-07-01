@@ -3,6 +3,7 @@
 **Breaking API Changes:**
 
 **API Changes:**
+- Renames `createThunksMiddleware` to `createThunkMiddleware` and adds deprecated forward for `createThunksMiddleware` (#20) - @fbernutz
 
 **Fixes:**
 

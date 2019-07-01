@@ -12,10 +12,10 @@ When [ReSwift](https://github.com/ReSwift/ReSwift/) is a [Redux](https://github.
 
 ```swift
 // First, you create the middleware, which needs to know the type of your `State`.
-let thunksMiddleware: Middleware<MyState> = createThunksMiddleware()
+let thunkMiddleware: Middleware<MyState> = createThunkMiddleware()
 
 // Note that it can perfectly live with other middleware in the chain.
-let store = Store<MyState>(reducer: reducer, state: nil, middleware: [thunksMiddleware])
+let store = Store<MyState>(reducer: reducer, state: nil, middleware: [thunkMiddleware])
 
 // A thunk represents an action that can perform side effects, access the current state of the store, and dispatch new actions, as if it were a ReSwift middleware.
 let thunk = Thunk<MyState> { dispatch, getState in 

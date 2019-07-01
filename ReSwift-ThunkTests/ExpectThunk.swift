@@ -114,7 +114,7 @@ extension ExpectThunk {
 extension ExpectThunk {
     @discardableResult
     public func run(file: StaticString = #file, line: UInt = #line) -> Self {
-        createThunksMiddleware()(dispatch, getState)({ _ in })(thunk)
+        createThunkMiddleware()(dispatch, getState)({ _ in })(thunk)
         failLeftovers()
         return self
     }
@@ -137,7 +137,7 @@ extension ExpectThunk {
                 expectation.fulfill()
             }
         }
-        createThunksMiddleware()(dispatch, getState)({ _ in })(thunk)
+        createThunkMiddleware()(dispatch, getState)({ _ in })(thunk)
         return self
     }
 
