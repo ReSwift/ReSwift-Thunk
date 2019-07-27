@@ -34,5 +34,5 @@ Pod::Spec.new do |spec|
 
   spec.default_subspec = "Core"
 
-  spec.dependency "ReSwift", "~> 4.0"
+  spec.dependency "ReSwift", "~> 5.0"
 end
