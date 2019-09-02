@@ -3,14 +3,21 @@
 **Breaking API Changes:**
 
 **API Changes:**
-- Renames `createThunksMiddleware` to `createThunkMiddleware` and adds deprecated forward for `createThunksMiddleware` (#20) - @fbernutz
 
 **Fixes:**
 
 **Other:**
 
+# 1.2.0
+
+**API Changes:**
+- Renames `createThunksMiddleware` to `createThunkMiddleware` and adds deprecated forward for `createThunksMiddleware` (#20) - @fbernutz
+
+**Other:**
+
 - Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec (#19) -- @jjgp
 - Adds SwiftPM support (#21) - @jayhickey
+- Require ReSwift 5.0 (#28) - @DivineDominion
 
 # 1.1.0
 
