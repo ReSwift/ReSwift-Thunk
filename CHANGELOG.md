@@ -10,7 +10,7 @@
 **Other:**
 
 - Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec (#19) -- @jjgp
-- Adds SwiftPM support (#21) - @jayhickey
+- Adds SwiftPM support (#21, #29) - @jayhickey, @SergeRykovski
 
 # 1.1.0
 
