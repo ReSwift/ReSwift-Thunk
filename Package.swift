@@ -8,7 +8,7 @@ let package = Package(
       .library(name: "ReSwift-Thunk", targets: ["ReSwift-Thunk"])
     ],
     dependencies: [
-      .package(url: "https://github.com/ReSwift/ReSwift", .upToNextMajor(from: "4.1.1"))
+      .package(url: "https://github.com/ReSwift/ReSwift", .upToNextMajor(from: "5.0.0"))
     ],
     targets: [
       .target(
