@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
 
   spec.subspec "ExpectThunk" do |sp|
     sp.dependency "ReSwiftThunk/Core"
-    sp.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO" }
+    sp.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO", "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES" => "YES" }
     sp.framework    = "XCTest"
     sp.source_files = "ReSwift-ThunkTests/ExpectThunk.swift"
   end
