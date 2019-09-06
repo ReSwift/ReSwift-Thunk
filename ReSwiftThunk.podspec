@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target = "9.0"
 
   spec.module_name  = "ReSwiftThunk"
-  spec.swift_version = "4.2"
+  spec.swift_versions = ["5.0", "4.2", "4.1"]
   spec.source = {
     :git => "https://github.com/ReSwift/ReSwift-Thunk.git",
     :tag => spec.version.to_s }
