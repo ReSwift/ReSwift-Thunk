@@ -12,8 +12,8 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target = "8.0"
   spec.osx.deployment_target = "10.10"
-  spec.watchos.deployment_target = '2.0'
-  spec.tvos.deployment_target = '9.0'
+  spec.watchos.deployment_target = "2.0"
+  spec.tvos.deployment_target = "9.0"
 
   spec.module_name  = "ReSwiftThunk"
   spec.swift_version = "4.2"
@@ -26,6 +26,9 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec "ExpectThunk" do |sp|
+    sp.ios.deployment_target = "8.0"
+    sp.osx.deployment_target = "10.10"
+    sp.tvos.deployment_target = "9.0"
     sp.dependency "ReSwiftThunk/Core"
     sp.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO" }
     sp.framework    = "XCTest"
