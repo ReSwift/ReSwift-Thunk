@@ -15,9 +15,10 @@
 
 **Other:**
 
-- Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec (#19) -- @jjgp
+- Adds `ExpectThunk` testing helper and corresponding CocoaPods subspec (#19, #37) - @jjgp, @okaverin
 - Adds SwiftPM support (#21) - @jayhickey
 - Require ReSwift 5.0 (#28) - @DivineDominion
+- Specify all officially supported Swift versions in podspec (#38) - @okaverin
 
 # 1.1.0
 
