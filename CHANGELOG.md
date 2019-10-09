@@ -8,6 +8,8 @@
 
 **Other:**
 
+- `ExpectThunk`'s methods `dispatches` and `getsState` no longer have `@discardableResult` return values
+
 # 1.2.0
 
 **API Changes:**
