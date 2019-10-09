@@ -57,7 +57,6 @@ public class ExpectThunk<State: StateType> {
 }
 
 extension ExpectThunk {
-    @discardableResult
     public func dispatches<A: Action & Equatable>(_ expected: A,
                                                   file: StaticString = #file,
                                                   line: UInt = #line) -> Self {
@@ -78,7 +77,6 @@ extension ExpectThunk {
         return self
     }
 
-    @discardableResult
     public func dispatches(file: StaticString = #file,
                            line: UInt = #line,
                            dispatch assertion: @escaping DispatchFunction) -> Self {
@@ -95,7 +93,6 @@ extension ExpectThunk {
 }
 
 extension ExpectThunk {
-    @discardableResult
     public func getsState(_ state: State,
                           file: StaticString = #file,
                           line: UInt = #line) -> Self {
