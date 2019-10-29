@@ -3,16 +3,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "ReSwift-Thunk",
+    name: "ReSwiftThunk",
     products: [
-      .library(name: "ReSwift-Thunk", targets: ["ReSwift-Thunk"])
+      .library(name: "ReSwiftThunk", targets: ["ReSwiftThunk"])
     ],
     dependencies: [
       .package(url: "https://github.com/ReSwift/ReSwift", .upToNextMajor(from: "5.0.0"))
     ],
     targets: [
       .target(
-        name: "ReSwift-Thunk",
+        name: "ReSwiftThunk",
         dependencies: [
           "ReSwift"
         ],
