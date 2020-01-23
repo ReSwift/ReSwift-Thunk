@@ -7,6 +7,8 @@
 **Fixes:**
 
 **Other:**
+- Rename SwiftPM library to `ReSwiftThunk`, this makes naming consistent across all package manager (Cocoapods, Carthage and SwiftPM)
+
 
 # 1.2.0
 
