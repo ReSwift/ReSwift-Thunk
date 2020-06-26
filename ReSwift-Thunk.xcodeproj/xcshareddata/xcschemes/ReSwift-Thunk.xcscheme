@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
-               BuildableName = "ReSwiftThunk.framework"
+               BlueprintIdentifier = "5036621B24A5D7DE003C65ED"
+               BuildableName = "ReSwift_Thunk.framework"
                BlueprintName = "ReSwift-Thunk"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
@@ -30,8 +30,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
-            BuildableName = "ReSwiftThunk.framework"
+            BlueprintIdentifier = "5036621B24A5D7DE003C65ED"
+            BuildableName = "ReSwift_Thunk.framework"
             BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
@@ -62,8 +62,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
-            BuildableName = "ReSwiftThunk.framework"
+            BlueprintIdentifier = "5036621B24A5D7DE003C65ED"
+            BuildableName = "ReSwift_Thunk.framework"
             BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
@@ -78,8 +78,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65A3D6D4218B89A60075CB92"
-            BuildableName = "ReSwiftThunk.framework"
+            BlueprintIdentifier = "5036621B24A5D7DE003C65ED"
+            BuildableName = "ReSwift_Thunk.framework"
             BlueprintName = "ReSwift-Thunk"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
