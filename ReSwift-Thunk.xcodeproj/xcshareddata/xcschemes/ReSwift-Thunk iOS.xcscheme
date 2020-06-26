@@ -42,8 +42,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "65A3D6DD218B89A60075CB92"
-               BuildableName = "ReSwift-Thunk-Tests.xctest"
-               BlueprintName = "ReSwift-Thunk-Tests"
+               BuildableName = "ReSwift-Thunk-Tests iOS.xctest"
+               BlueprintName = "ReSwift-Thunk-Tests iOS"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
          </TestableReference>

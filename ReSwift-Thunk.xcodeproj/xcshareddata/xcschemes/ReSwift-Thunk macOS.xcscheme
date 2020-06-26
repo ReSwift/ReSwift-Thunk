@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65A3D6DD218B89A60075CB92"
-               BuildableName = "ReSwift-Thunk-Tests.xctest"
-               BlueprintName = "ReSwift-Thunk-Tests"
+               BlueprintIdentifier = "5036623E24A5DA85003C65ED"
+               BuildableName = "ReSwift-Thunk-Tests macOS.xctest"
+               BlueprintName = "ReSwift-Thunk-Tests macOS"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
          </TestableReference>
