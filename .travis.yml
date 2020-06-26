@@ -36,7 +36,7 @@ script:
   - xcodebuild
     "$ACTION"
     -project "$FRAMEWORK_NAME.xcodeproj"
-    -scheme "$FRAMEWORK_NAME"
+    -scheme "$FRAMEWORK_NAME $SCHEME"
     -sdk "$SDK"
     -destination "$DESTINATION"
     -configuration Debug
