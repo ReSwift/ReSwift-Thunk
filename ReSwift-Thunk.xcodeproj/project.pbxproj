@@ -67,7 +67,6 @@
 		65A3D6E3218B89A60075CB92 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		65A3D6E5218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6EF218B8A300075CB92 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
-		65A3D6F2218C91F20075CB92 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		65A3D6F4218C92420075CB92 /* createThunkMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createThunkMiddleware.swift; sourceTree = "<group>"; };
 		D28E4F552214F37100DEFA7D /* ExpectThunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectThunk.swift; sourceTree = "<group>"; };
 		D4286E7721EFED3F00D5749B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -138,7 +137,6 @@
 				65A3D6D7218B89A60075CB92 /* ReSwift-Thunk */,
 				65A3D6E2218B89A60075CB92 /* ReSwift-ThunkTests */,
 				65A3D6D6218B89A60075CB92 /* Products */,
-				65A3D6F1218C91F10075CB92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,14 +173,6 @@
 				65A3D6E5218B89A60075CB92 /* Info.plist */,
 			);
 			path = "ReSwift-ThunkTests";
-			sourceTree = "<group>";
-		};
-		65A3D6F1218C91F10075CB92 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				65A3D6F2218C91F20075CB92 /* ReSwift.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -658,15 +648,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ReSwift-ThunkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -682,15 +671,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ReSwift-ThunkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -813,6 +801,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ReSwift-ThunkTests/Info.plist";
@@ -820,6 +809,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io..ReSwift-Thunk-tvOSTests";
@@ -828,7 +818,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.4;
 			};
 			name = Debug;
 		};
@@ -836,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ReSwift-ThunkTests/Info.plist";
@@ -843,6 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io..ReSwift-Thunk-tvOSTests";
@@ -851,7 +842,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.4;
 			};
 			name = Release;
 		};
@@ -1024,6 +1014,7 @@
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1048,6 +1039,7 @@
 				OTHER_SWIFT_FLAGS = "-D RESWIFT_THUNKTESTS";
 				PRODUCT_BUNDLE_IDENTIFIER = "reswift.github.io.ReSwift-ThunkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 5.0;
 			};
