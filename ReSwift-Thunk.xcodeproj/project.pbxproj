@@ -12,7 +12,6 @@
 		5036622B24A5D86B003C65ED /* createThunkMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6F4218C92420075CB92 /* createThunkMiddleware.swift */; };
 		5036622C24A5D883003C65ED /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5036621C24A5D7DE003C65ED /* ReSwiftThunk.framework */; };
 		5036623A24A5D908003C65ED /* ReSwift_Thunk.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5036624224A5DA85003C65ED /* ReSwift_Thunk_Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036624124A5DA85003C65ED /* ReSwift_Thunk_Tests_macOS.swift */; };
 		5036624424A5DA85003C65ED /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5036623224A5D8FB003C65ED /* ReSwiftThunk.framework */; };
 		65A3D6E4218B89A60075CB92 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6E3218B89A60075CB92 /* Tests.swift */; };
 		D28E4F562214F37100DEFA7D /* ExpectThunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E4F552214F37100DEFA7D /* ExpectThunk.swift */; };
@@ -39,8 +38,6 @@
 		5036621C24A5D7DE003C65ED /* ReSwiftThunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwiftThunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5036623224A5D8FB003C65ED /* ReSwiftThunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwiftThunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5036623F24A5DA85003C65ED /* ReSwift-Thunk-Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5036624124A5DA85003C65ED /* ReSwift_Thunk_Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwift_Thunk_Tests_macOS.swift; sourceTree = "<group>"; };
-		5036624324A5DA85003C65ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReSwift_Thunk.h; sourceTree = "<group>"; };
 		65A3D6D9218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,15 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5036624024A5DA85003C65ED /* ReSwift-Thunk-Tests-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				5036624124A5DA85003C65ED /* ReSwift_Thunk_Tests_macOS.swift */,
-				5036624324A5DA85003C65ED /* Info.plist */,
-			);
-			path = "ReSwift-Thunk-Tests-macOS";
-			sourceTree = "<group>";
-		};
 		65A3D6CB218B89A60075CB92 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +92,6 @@
 				D4286E7821EFED4D00D5749B /* README.md */,
 				65A3D6D7218B89A60075CB92 /* ReSwift-Thunk */,
 				65A3D6E2218B89A60075CB92 /* ReSwift-ThunkTests */,
-				5036624024A5DA85003C65ED /* ReSwift-Thunk-Tests-macOS */,
 				65A3D6D6218B89A60075CB92 /* Products */,
 				65A3D6F1218C91F10075CB92 /* Frameworks */,
 			);
@@ -343,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5036624224A5DA85003C65ED /* ReSwift_Thunk_Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
