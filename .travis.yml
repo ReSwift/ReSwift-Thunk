@@ -11,13 +11,13 @@ matrix:
     - osx_image: xcode10.1
       env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2" ACTION="test"
     - osx_image: xcode12
-      env: SCHEME="macOS"  SDK="macosx10.15"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="5.2" ACTION="test" POD_LINT="YES"
+      env: SCHEME="macOS"  SDK="macosx10.15"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="5.3" ACTION="test" POD_LINT="YES"
     - osx_image: xcode12
-      env: SCHEME="iOS"    SDK="iphonesimulator"      DESTINATION="OS=14.0,name=iPhone 11"         SWIFT_VERSION="5.2" ACTION="test"
+      env: SCHEME="iOS"    SDK="iphonesimulator"      DESTINATION="OS=14.0,name=iPhone 11"         SWIFT_VERSION="5.3" ACTION="test"
     - osx_image: xcode12
-      env: SCHEME="tvOS"   SDK="appletvsimulator"     DESTINATION="OS=14.0,name=Apple TV 4K"       SWIFT_VERSION="5.2" ACTION="test"
+      env: SCHEME="tvOS"   SDK="appletvsimulator"     DESTINATION="OS=14.0,name=Apple TV 4K"       SWIFT_VERSION="5.3" ACTION="test"
     - osx_image: xcode12
-      env: SCHEME="watchOS"  SDK="watchsimulator"     DESTINATION="OS=7.0,name=Apple Watch Series 6 - 44mm" SWIFT_VERSION="5.2" ACTION="build"
+      env: SCHEME="watchOS"  SDK="watchsimulator"     DESTINATION="OS=7.0,name=Apple Watch Series 6 - 44mm" SWIFT_VERSION="5.3" ACTION="build"
 
 before_install:
   - if [ $POD_LINT == "YES" ]; then
