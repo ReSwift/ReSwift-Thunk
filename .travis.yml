@@ -24,7 +24,7 @@ before_install:
       gem install cocoapods -v '1.7.5';
       pod repo update;
     fi
-  - carthage bootstrap --platform "$SCHEME" --verbose
+  - ./carthage.sh bootstrap --platform "$SCHEME" --verbose
 
 install:
   - gem install xcpretty
