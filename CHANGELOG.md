@@ -6,11 +6,15 @@
 
 **Fixes:**
 
+# 2.0.0
+
+**Breaking API Changes:**
+- Drop support for Swift 3.2, 4.0, and 4.1. (#45) - @shawnkoh, @mjarvis
+- Drop support for iOS 8 (#45) - @shawnkoh, @mjarvis
+
 **Other:**
-- Rename SwiftPM library to `ReSwiftThunk`, this makes naming consistent across all package manager (Cocoapods, Carthage and SwiftPM)
-
-
-- `ExpectThunk`'s methods `dispatches` and `getsState` no longer have `@discardableResult` return values
+- Rename SwiftPM library to `ReSwiftThunk`, this makes naming consistent across all package manager (Cocoapods, Carthage and SwiftPM) (#42) - @jookes
+- `ExpectThunk`'s methods `dispatches` and `getsState` no longer have `@discardableResult` return values (#40) - @xavierLowmiller
 
 # 1.2.0
 
