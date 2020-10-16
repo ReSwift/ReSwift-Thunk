@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "ReSwiftThunk"
-  spec.version      = "2.0.0"
+  spec.version      = "2.0.1"
   spec.summary      = "Thunk middleware for ReSwift."
   spec.description  = <<-DESC
                       ReSwift-Thunk allows you to write action creators that return a function instead of an action. Instead of dispatching an `Action` directly, you can dispatch a `Thunk` that creates an action at a later time, for example after a network request finishes.
