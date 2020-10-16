@@ -6,7 +6,7 @@
 [![Platform support](https://img.shields.io/badge/platform-ios%20%7C%20osx%20%7C%20tvos%20%7C%20watchos-lightgrey.svg?style=flat-square)](https://github.com/ReSwift/ReSwift-Thunk/blob/master/LICENSE.md)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/ReSwift/ReSwift-Thunk/blob/master/LICENSE.md) [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg?style=flat-square)](https://houndci.com)
 
-**Supported Swift Versions:** Swift 4.1, Swift 4.2, Swift 5.0
+**Supported Swift Versions:** Swift 4.2, Swift 5.0, Swift 5.3
 
 When [ReSwift](https://github.com/ReSwift/ReSwift/) is a [Redux](https://github.com/reactjs/redux)-like implementation of the unidirectional data flow architecture in Swift, ReSwift-Thunk is like [redux-thunk](https://github.com/reduxjs/redux-thunk). 
 
