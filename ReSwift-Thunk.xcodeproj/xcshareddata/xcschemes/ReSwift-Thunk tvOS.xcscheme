@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1150"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5036626024A5DC31003C65ED"
-               BuildableName = "ReSwift_Thunk_tvOS.framework"
+               BuildableName = "ReSwiftThunk.framework"
                BlueprintName = "ReSwift-Thunk tvOS"
                ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
             </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5036626024A5DC31003C65ED"
-            BuildableName = "ReSwift_Thunk_tvOS.framework"
+            BuildableName = "ReSwiftThunk.framework"
             BlueprintName = "ReSwift-Thunk tvOS"
             ReferencedContainer = "container:ReSwift-Thunk.xcodeproj">
          </BuildableReference>
