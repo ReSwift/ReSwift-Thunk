@@ -8,7 +8,7 @@ env:
 
 matrix:
   include:
-    - osx_image: xcode10.1
+    - osx_image: xcode10.2
       env: SCHEME="macOS"  SDK="macosx10.14"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="4.2" ACTION="test"
     - osx_image: xcode12
       env: SCHEME="macOS"  SDK="macosx10.15"          DESTINATION="arch=x86_64"                    SWIFT_VERSION="5.3" ACTION="test" POD_LINT="YES"
