@@ -6,6 +6,12 @@
 
 **Fixes:**
 
+# 2.0.1
+
+**Fixes:**
+
+- Fixes Carthage build error (#44) - @DivineDominion, @mjarvis
+
 # 2.0.0
 
 **Breaking API Changes:**
@@ -15,7 +21,7 @@
 **Other:**
 - Rename SwiftPM library to `ReSwiftThunk`, this makes naming consistent across all package manager (Cocoapods, Carthage and SwiftPM) (#42) - @jookes
 - `ExpectThunk`'s methods `dispatches` and `getsState` no longer have `@discardableResult` return values (#40) - @xavierLowmiller
-
+-
 # 1.2.0
 
 **API Changes:**
