@@ -11,7 +11,7 @@ import XCTest
 
 import ReSwift
 
-private struct FakeState: StateType {}
+private struct FakeState {}
 private struct FakeAction: Action {}
 private struct AnotherFakeAction: Action, Equatable {}
 private func fakeReducer(action: Action, state: FakeState?) -> FakeState {

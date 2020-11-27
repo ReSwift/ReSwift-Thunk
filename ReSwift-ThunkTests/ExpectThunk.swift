@@ -31,7 +31,7 @@ private struct ExpectThunkAssertion<T> {
     }
 }
 
-public class ExpectThunk<State: StateType> {
+public class ExpectThunk<State> {
     private var dispatch: DispatchFunction {
         return { action in
             self.dispatched.append(action)
