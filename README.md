@@ -38,7 +38,8 @@ let thunk = Thunk<MyState> { dispatch, getState in
 
 // A thunk can also be a function if you want to pass on parameters
 func thunkWithParams(_ identifier: Int) -> Thunk<MyState> {
-    return Thunk<MyState> { dispatch, getState in
+    let label = "Getting something for ID \(identifier)"
+    return Thunk<MyState>(label: label) { dispatch, getState in
         guard let state = getState() else { return }
         
         if state.loading {
