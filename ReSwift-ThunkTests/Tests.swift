@@ -20,6 +20,15 @@ private func fakeReducer(action: Action, state: FakeState?) -> FakeState {
 
 class Tests: XCTestCase {
 
+    func testDescription() {
+        XCTAssertEqual("Thunk<FakeState>(label: \"With Label\")",
+                       Thunk<FakeState>(label: "With Label", body: { _, _ in }).description)
+        XCTAssertEqual("Thunk<FakeState>()",
+                       Thunk<FakeState>(label: nil, body: { _, _ in }).description)
+        XCTAssertEqual("Thunk<FakeState>()",
+                       Thunk<FakeState>(body: { _, _ in }).description)
+    }
+
     func testAction() {
         let middleware: Middleware<FakeState> = createThunkMiddleware()
         let dispatch: DispatchFunction = { _ in }
