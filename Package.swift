@@ -5,7 +5,8 @@ import PackageDescription
 let package = Package(
     name: "ReSwiftThunk",
     products: [
-      .library(name: "ReSwiftThunk", targets: ["ReSwiftThunk"])
+      .library(name: "ReSwiftThunk", targets: ["ReSwiftThunk"]),
+      .library(name: "ExpectThunk", targets: ["ExpectThunk"])
     ],
     dependencies: [
       .package(url: "https://github.com/ReSwift/ReSwift", .upToNextMajor(from: "6.0.0"))
@@ -17,6 +18,11 @@ let package = Package(
           "ReSwift"
         ],
         path: "ReSwift-Thunk"
+      ),
+      .target(
+        name: "ExpectThunk",
+        path: "ReSwift-ThunkTests/",
+        sources: ["ExpectThunk.swift"]
       )
     ]
 )
