@@ -4,6 +4,8 @@
 
 **API Changes:**
 
+- Remove deprecated `StateType` protocol requirement (#48) - @DivineDominion, @mjarvis
+
 **Fixes:**
 
 # 2.0.1
