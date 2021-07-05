@@ -128,6 +128,12 @@ let package = Package(
 )
 ```
 
+Import testing support by importing `ReSwiftThunkTesting`
+
+```swift
+import ReSwiftThunkTesting
+```
+
 ## Checking out Source Code
 
 After checking out the project run `pod install` to get the latest supported version of [SwiftLint](https://github.com/realm/SwiftLint), which we use to ensure a consistent style in the codebase.

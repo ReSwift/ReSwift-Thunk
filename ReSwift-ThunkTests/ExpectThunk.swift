@@ -8,10 +8,7 @@
 
 import XCTest
 import ReSwift
-
-#if RESWIFT_THUNKTESTS
 import ReSwiftThunk
-#endif
 
 private struct ExpectThunkAssertion<T> {
     fileprivate let associated: T
