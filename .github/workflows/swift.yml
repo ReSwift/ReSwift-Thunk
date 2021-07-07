@@ -63,7 +63,7 @@ jobs:
       id: carthage-cache
       with:
         path: Carthage/**/*
-        key: ${{ runner.os }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v2
+        key: ${{ matrix.scheme }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v2
     - name: Print Carthage contents after cache
       run: |
        if [[ -d Carthage ]]; then
