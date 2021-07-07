@@ -65,7 +65,10 @@ jobs:
         path: Carthage/**/*
         key: ${{ runner.os }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v2
     - name: Print Carthage contents after cache
-      run: ls Carthage/**/*
+      run: |
+       if [[ -d Carthage ]]; then
+         ls Carthage/**/*
+       fi
     - name: Carthage Bootstrap
       if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds --platform ${{ matrix.scheme }}
