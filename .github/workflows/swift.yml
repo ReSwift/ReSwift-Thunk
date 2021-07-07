@@ -13,9 +13,9 @@ jobs:
     strategy:
       matrix:
         include:
-        - scheme: iOS
-          sdk: iphonesimulator
-          destination: "platform=iOS Simulator,OS=14.4,name=iPhone 11"
+        - scheme: tvOS
+          sdk: appletvsimulator
+          destination: "platform=tvOS Simulator,OS=14.3,name=Apple TV 4K"
           swift_version: "5.3"
           action: test
           pod_lint: "NO"
