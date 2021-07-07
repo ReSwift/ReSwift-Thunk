@@ -41,6 +41,16 @@ jobs:
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
     - name: Carthage Bootstrap
       run: carthage bootstrap --no-use-binaries --use-xcframeworks --platform "${{ matrix.scheme }}"
+
+    - name: Build Only
+      if: matrix.action != 'test'
+      uses: devbotsxyz/xcode-build@v1.0.0 
+      with: 
+        project: "${{ env.FRAMEWORK_NAME }}.xcodeproj"
+        scheme: "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}"
+        sdk: "${{ matrix.sdk }}"
+        destination: "${{ matrix.destination }}"
+        configuration: Debug
     - name: Build and Test
       if: matrix.action == 'test'
       uses: devbotsxyz/xcode-test@v1.1.0 
@@ -50,6 +60,7 @@ jobs:
         sdk: "${{ matrix.sdk }}"
         destination: "${{ matrix.destination }}"
         configuration: Debug
+
     - name: Lint If Needed
       if: matrix.pod_lint == 'YES'
       run: |
