@@ -38,10 +38,8 @@ jobs:
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showsdks
     - name: Show Available Destinations
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
-    - name: "Carthage Bootstrap"
-      uses: devbotsxyz/carthage-bootstrap@main
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Carthage Bootstrap
+      run: carthage --bootstrap --no-use-binaries --use-xcframeworks
     - name: Build and Test
       uses: devbotsxyz/xcode-test@v1.1.0 
       with: 
