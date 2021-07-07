@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,12 +26,12 @@
 		5036627C24A5DC81003C65ED /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6EF218B8A300075CB92 /* Thunk.swift */; };
 		5036627D24A5DC81003C65ED /* createThunkMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6F4218C92420075CB92 /* createThunkMiddleware.swift */; };
 		5036627E24A5DD1E003C65ED /* ReSwift_Thunk.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		507DCA1C2695F217007A5474 /* ReSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507DCA1B2695F217007A5474 /* ReSwift.xcframework */; };
+		507DCA1D2695F217007A5474 /* ReSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507DCA1B2695F217007A5474 /* ReSwift.xcframework */; };
+		507DCA1E2695F217007A5474 /* ReSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507DCA1B2695F217007A5474 /* ReSwift.xcframework */; };
+		507DCA1F2695F217007A5474 /* ReSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507DCA1B2695F217007A5474 /* ReSwift.xcframework */; };
 		65A3D6E4218B89A60075CB92 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A3D6E3218B89A60075CB92 /* Tests.swift */; };
 		D28E4F562214F37100DEFA7D /* ExpectThunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E4F552214F37100DEFA7D /* ExpectThunk.swift */; };
-		D4142B39253A3B24009FE569 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4142B35253A3B03009FE569 /* ReSwift.framework */; };
-		D4142B3D253A3B29009FE569 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4142B3C253A3B29009FE569 /* ReSwift.framework */; };
-		D4142B41253A3B30009FE569 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4142B40253A3B30009FE569 /* ReSwift.framework */; };
-		D4142B45253A3B33009FE569 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4142B44253A3B33009FE569 /* ReSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +65,7 @@
 		5036624F24A5DB68003C65ED /* ReSwiftThunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwiftThunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5036626124A5DC31003C65ED /* ReSwiftThunk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReSwiftThunk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5036626924A5DC32003C65ED /* ReSwift-Thunk-Tests tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		507DCA1B2695F217007A5474 /* ReSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ReSwift.xcframework; path = Carthage/Build/ReSwift.xcframework; sourceTree = "<group>"; };
 		65A3D6D8218B89A60075CB92 /* ReSwift_Thunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReSwift_Thunk.h; sourceTree = "<group>"; };
 		65A3D6D9218B89A60075CB92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A3D6DE218B89A60075CB92 /* ReSwift-Thunk-Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift-Thunk-Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,10 +74,6 @@
 		65A3D6EF218B8A300075CB92 /* Thunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
 		65A3D6F4218C92420075CB92 /* createThunkMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createThunkMiddleware.swift; sourceTree = "<group>"; };
 		D28E4F552214F37100DEFA7D /* ExpectThunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectThunk.swift; sourceTree = "<group>"; };
-		D4142B35253A3B03009FE569 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		D4142B3C253A3B29009FE569 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
-		D4142B40253A3B30009FE569 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/watchOS/ReSwift.framework; sourceTree = "<group>"; };
-		D4142B44253A3B33009FE569 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/tvOS/ReSwift.framework; sourceTree = "<group>"; };
 		D4286E7721EFED3F00D5749B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D4286E7821EFED4D00D5749B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4142B39253A3B24009FE569 /* ReSwift.framework in Frameworks */,
+				507DCA1C2695F217007A5474 /* ReSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4142B3D253A3B29009FE569 /* ReSwift.framework in Frameworks */,
+				507DCA1D2695F217007A5474 /* ReSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4142B41253A3B30009FE569 /* ReSwift.framework in Frameworks */,
+				507DCA1E2695F217007A5474 /* ReSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4142B45253A3B33009FE569 /* ReSwift.framework in Frameworks */,
+				507DCA1F2695F217007A5474 /* ReSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,10 +188,7 @@
 		D4142B34253A3B02009FE569 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4142B44253A3B33009FE569 /* ReSwift.framework */,
-				D4142B40253A3B30009FE569 /* ReSwift.framework */,
-				D4142B3C253A3B29009FE569 /* ReSwift.framework */,
-				D4142B35253A3B03009FE569 /* ReSwift.framework */,
+				507DCA1B2695F217007A5474 /* ReSwift.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
