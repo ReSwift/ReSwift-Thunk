@@ -13,11 +13,11 @@ jobs:
     strategy:
       matrix:
         include:
-        - scheme: tvOS
-          sdk: appletvsimulator
-          destination: "platform=tvOS Simulator,OS=14.3,name=Apple TV 4K"
+        - scheme: watchOS
+          sdk: watchsimulator
+          destination: "platform=watchOS Simulator,OS=7.2,name=Apple Watch Series 6 - 44mm"
           swift_version: "5.3"
-          action: test
+          action: build
           pod_lint: "NO"
 
 
