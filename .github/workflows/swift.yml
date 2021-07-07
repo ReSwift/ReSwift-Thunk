@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         include:
-        - scheme: "macOS"
+        - scheme: macOS
           sdk: "macosx11.1"
-          destination: platform=macOS"
-          arch: "x86_64"
+          destination: platform=macOS
+          arch: x86_64
           swift_version: "5.3"
-          action: "test"
+          action: test
           pod_lint: "YES"
 
     env:
