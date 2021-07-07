@@ -18,24 +18,6 @@ jobs:
           swift_version: "5.3"
           action: "test"
           pod_lint: "YES"
-        - scheme: "iOS"
-          sdk: "iphonesimulator"
-          destination: "platform=iOS Simulator,OS=14.3,name=iPhone 11"
-          swift_version: "5.3"
-          action: "test"
-          pod_lint: "NO"
-        - scheme: "tvOS"
-          sdk: "appletvsimulator"
-          destination: "platform=tvOS Simulator,OS=14.3,name=Apple TV 4K"
-          swift_version: "5.3"
-          action: "test"
-          pod_lint: "NO"
-        - scheme: "watchOS"
-          sdk: "watchsimulator"
-          destination: "platform=watchOS Simulator,OS=7.2,name=Apple Watch Series 6 - 44mm"
-          swift_version: "5.3"
-          action: "build"
-          pod_lint: "NO"
 
     env:
       LC_CTYPE: en_US.UTF-8
@@ -62,7 +44,7 @@ jobs:
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
     - name: Install Carthage Dependencies
       if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --platform "${{ matrix.scheme }}" --use-xcframeworks --verbose
+      run: carthage bootstrap --use-xcframeworks --no-use-binaries --verbose
     - name: Build and Test
       run: |
         xcodebuild "${{ matrix.action }}" \
