@@ -65,7 +65,7 @@ jobs:
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
     - name: Carthage Bootstrap
       if: steps.dependency-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds
+      run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds --platform ${{ matrix.scheme }}
     - name: Build and Test
       run: |
         xcodebuild clean ${{ matrix.action }} \
