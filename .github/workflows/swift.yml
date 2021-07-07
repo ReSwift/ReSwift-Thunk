@@ -45,8 +45,8 @@ jobs:
       run: |
         xcodebuild clean ${{ matrix.action }} \
           -destination "${{ matrix.destination }}" \
-          -scheme ${{ matrix.scheme }} \
-          -sdk "${{ matrix.sdk }}" \ 
+          -scheme ${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }} \
+          -sdk "${{ matrix.sdk }}" \
           -configuration Debug \
           -project "${{ env.FRAMEWORK_NAME }}.xcodeproj" \
           CODE_SIGN_IDENTITY="" \
