@@ -15,7 +15,8 @@ jobs:
         include:
         - scheme: "macOS"
           sdk: "macosx11.1"
-          destination: "platform=macOS,arch=x86_64"
+          destination: platform=macOS"
+          arch: "x86_64"
           swift_version: "5.3"
           action: "test"
           pod_lint: "YES"
@@ -41,6 +42,7 @@ jobs:
     - name: Carthage Bootstrap
       run: carthage bootstrap --no-use-binaries --use-xcframeworks
     - name: Build and Test
+      if: matrix.action == "test"
       uses: devbotsxyz/xcode-test@v1.1.0 
       with: 
         project: "${{ env.FRAMEWORK_NAME }}.xcodeproj"
