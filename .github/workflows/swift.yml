@@ -13,13 +13,32 @@ jobs:
     strategy:
       matrix:
         include:
+        - scheme: macOS
+          sdk: "macosx11.1"
+          destination: "platform=macOS"
+          arch: x86_64
+          swift_version: "5.3"
+          action: test
+          pod_lint: "YES"
+        - scheme: iOS
+          sdk: iphonesimulator
+          destination: "platform=iOS Simulator,OS=14.4,name=iPhone 11"
+          swift_version: "5.3"
+          action: test
+          pod_lint: "NO"
+        - scheme: tvOS
+          sdk: appletvsimulator
+          destination: "platform=tvOS Simulator,OS=14.3,name=Apple TV 4K"
+          swift_version: "5.3"
+          action: test
+          pod_lint: "NO"
         - scheme: watchOS
           sdk: watchsimulator
           destination: "platform=watchOS Simulator,name=Apple Watch Series 5 - 44mm"
           swift_version: "5.3"
           action: build
           pod_lint: "NO"
-
+          
     env:
       LC_CTYPE: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -39,7 +58,7 @@ jobs:
     - name: Show Available Destinations
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
     - name: Carthage Bootstrap
-      run: carthage bootstrap --no-use-binaries --use-xcframeworks --platform "${{ matrix.scheme }}"
+      run: carthage bootstrap --no-use-binaries --use-xcframeworks --platform "${{ matrix.scheme }}" --cache-builds
 
     - name: Build and Test
       run: |
