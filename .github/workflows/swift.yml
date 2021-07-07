@@ -61,8 +61,10 @@ jobs:
       uses: actions/cache@v1
       id: dependency-cache
       with:
-        path: Carthage
+        path: Carthage/**/*
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+    - name: Print Carthage contents
+      run: ls Carthage/**/*
     - name: Carthage Bootstrap
       if: steps.dependency-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds --platform ${{ matrix.scheme }}
