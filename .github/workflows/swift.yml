@@ -15,7 +15,7 @@ jobs:
         include:
         - scheme: iOS
           sdk: iphonesimulator
-          destination: "platform=iOS Simulator,OS=14.3,name=iPhone 11"
+          destination: "platform=iOS Simulator,OS=14.4,name=iPhone 11"
           swift_version: "5.3"
           action: test
           pod_lint: "NO"
