@@ -13,13 +13,13 @@ jobs:
     strategy:
       matrix:
         include:
-        - scheme: macOS
-          sdk: "macosx11.1"
-          destination: platform=macOS
-          arch: x86_64
+        - scheme: iOS
+          sdk: iphonesimulator
+          destination: "platform=iOS Simulator,OS=14.3,name=iPhone 11"
           swift_version: "5.3"
           action: test
-          pod_lint: "YES"
+          pod_lint: "NO"
+
 
     env:
       LC_CTYPE: en_US.UTF-8
