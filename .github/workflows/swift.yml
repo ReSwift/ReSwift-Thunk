@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: Checkout Project
       uses: actions/checkout@v2
-    - name: Select Xcode 12.0.0
+    - name: Select Xcode
       uses: devbotsxyz/xcode-select@v1.1.0
       with:
         version: "12.4.0"
@@ -45,7 +45,7 @@ jobs:
       run: |
         xcodebuild clean ${{ matrix.action }} \
           -destination "${{ matrix.destination }}" \
-          -scheme ${SCHEME} \
+          -scheme ${{ matrix.scheme }} \
           -sdk "${{ matrix.sdk }}" \ 
           -configuration Debug \
           -project "${{ env.FRAMEWORK_NAME }}.xcodeproj" \
