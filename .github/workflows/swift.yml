@@ -62,7 +62,7 @@ jobs:
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
     - name: Install Carthage Dependencies
       if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --platform "${{ matrix.scheme }}" --verbose
+      run: carthage bootstrap --platform "${{ matrix.scheme }}" --use-xcframeworks --verbose
     - name: Build and Test
       run: |
         xcodebuild "${{ matrix.action }}" \
