@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
         - scheme: "macOS"
-          sdk: "macosx11.3"
+          sdk: "macosx11.1"
           destination: "platform=macOS,arch=x86_64"
           swift_version: "5.3"
           action: "test"
