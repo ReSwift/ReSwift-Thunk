@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: macos-10.15
+    timeout-minutes: 10
     strategy:
       matrix:
         include:
@@ -27,32 +28,28 @@ jobs:
     steps:
     - name: Checkout Project
       uses: actions/checkout@v2
-    - uses: actions/cache@v2
-      id: carthage-cache
+    - name: "Select Xcode 12.0.0"
+      uses: devbotsxyz/xcode-select@master
       with:
-        path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-        restore-keys: |
-              ${{ runner.os }}-carthage-
-    - name: Show the currently detailed version of Xcode for CLI
-      run: xcode-select -p
+        version: "12.4.0"
     - name: Show Build Settings
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showBuildSettings
     - name: Show Build SDK
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showsdks
     - name: Show Available Destinations
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
-    - name: Install Carthage Dependencies
-      if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --use-xcframeworks --no-use-binaries --verbose
+    - name: "Carthage Bootstrap"
+      uses: devbotsxyz/carthage-bootstrap@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Test
-      run: |
-        xcodebuild "${{ matrix.action }}" \
-          -project "${{ env.FRAMEWORK_NAME }}.xcodeproj" \
-          -scheme "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}" \
-          -sdk "${{ matrix.sdk }}" \
-          -destination "${{ matrix.destination }}" \
-          -configuration Debug
+      uses: devbotsxyz/xcode-test@v1.1.0 
+      with: 
+        project: "${{ env.FRAMEWORK_NAME }}.xcodeproj"
+        scheme: "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}"
+        sdk: "${{ matrix.sdk }}"
+        destination: "${{ matrix.destination }}"
+        configuration: Debug
     - name: Lint If Needed
       if: matrix.pod_lint == 'YES'
       run: |
