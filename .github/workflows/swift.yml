@@ -55,19 +55,19 @@ jobs:
     - name: Show the currently detailed version of Xcode for CLI
       run: xcode-select -p
     - name: Show Build Settings
-      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showBuildSettings
+      run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showBuildSettings
     - name: Show Build SDK
-      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showsdks
+      run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showsdks
     - name: Show Available Destinations
-      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showdestinations
+      run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
     - name: Install Carthage Dependencies
       if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --platform "${{ matrix.scheme }}" --verbose
     - name: Build and Test
       run: |
         xcodebuild "${{ matrix.action }}" \
-          -project "$FRAMEWORK_NAME.xcodeproj" \
-          -scheme "$FRAMEWORK_NAME ${{ matrix.scheme }}" \
+          -project "${{ env.FRAMEWORK_NAME }}.xcodeproj" \
+          -scheme "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}" \
           -sdk "${{ matrix.sdk }}" \
           -destination "${{ matrix.destination }}" \
           -configuration Debug
