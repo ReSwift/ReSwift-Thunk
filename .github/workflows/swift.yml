@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
         - scheme: "macOS"
-          sdk: "macosx10.15"
+          sdk: "macosx11.3"
           destination: "platform=macOS,arch=x86_64"
           swift_version: "5.3"
           action: "test"
@@ -55,19 +55,19 @@ jobs:
     - name: Show the currently detailed version of Xcode for CLI
       run: xcode-select -p
     - name: Show Build Settings
-      run: xcodebuild -project ReSwift-Thunk.xcodeproj -scheme '${{ matrix.scheme }}' -showBuildSettings
+      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showBuildSettings
     - name: Show Build SDK
-      run: xcodebuild -project ReSwift-Thunk.xcodeproj -scheme '${{ matrix.scheme }}' -showsdks
+      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showsdks
     - name: Show Available Destinations
-      run: xcodebuild -project ReSwift-Thunk.xcodeproj -scheme '${{ matrix.scheme }}' -showdestinations
+      run: xcodebuild -project $FRAMEWORK_NAME.xcodeproj -scheme '$FRAMEWORK_NAME ${{ matrix.scheme }}' -showdestinations
     - name: Install Carthage Dependencies
       if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --platform "${{ matrix.scheme }}" --verbose
     - name: Build and Test
       run: |
         xcodebuild "${{ matrix.action }}" \
-          -project "ReSwift-Thunk.xcodeproj" \
-          -scheme "ReSwift-Thunk ${{ matrix.scheme }}" \
+          -project "$FRAMEWORK_NAME.xcodeproj" \
+          -scheme "$FRAMEWORK_NAME ${{ matrix.scheme }}" \
           -sdk "${{ matrix.sdk }}" \
           -destination "${{ matrix.destination }}" \
           -configuration Debug
