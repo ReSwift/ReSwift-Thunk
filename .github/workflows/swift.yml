@@ -15,11 +15,10 @@ jobs:
         include:
         - scheme: watchOS
           sdk: watchsimulator
-          destination: "platform=watchOS Simulator,OS=7.2,name=Apple Watch Series 6 - 44mm"
+          destination: "platform=watchOS Simulator,name=Apple Watch Series 5 - 44mm"
           swift_version: "5.3"
           action: build
           pod_lint: "NO"
-
 
     env:
       LC_CTYPE: en_US.UTF-8
@@ -42,32 +41,24 @@ jobs:
     - name: Carthage Bootstrap
       run: carthage bootstrap --no-use-binaries --use-xcframeworks --platform "${{ matrix.scheme }}"
 
-    - name: Build Only
-      if: matrix.action != 'test'
-      uses: devbotsxyz/xcode-build@v1.0.0 
-      with: 
-        project: "${{ env.FRAMEWORK_NAME }}.xcodeproj"
-        scheme: "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}"
-        sdk: "${{ matrix.sdk }}"
-        destination: "${{ matrix.destination }}"
-        configuration: Debug
     - name: Build and Test
-      if: matrix.action == 'test'
-      uses: devbotsxyz/xcode-test@v1.1.0 
-      with: 
-        project: "${{ env.FRAMEWORK_NAME }}.xcodeproj"
-        scheme: "${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}"
-        sdk: "${{ matrix.sdk }}"
-        destination: "${{ matrix.destination }}"
-        configuration: Debug
+      run: |
+        xcodebuild clean ${{ matrix.action }} \
+          -destination "${{ matrix.destination }}" \
+          -scheme ${SCHEME} \
+          -sdk "${{ matrix.sdk }}" \ 
+          -configuration Debug \
+          -project "${{ env.FRAMEWORK_NAME }}.xcodeproj" \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=YES \
+          GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES \
+          GCC_GENERATE_TEST_COVERAGE_FILES=YES \
+          SWIFT_VERSION=${{ matrix.swift_version }}
 
     - name: Lint If Needed
       if: matrix.pod_lint == 'YES'
       run: |
         gem install cocoapods -v '1.10.1'
         pod repo update
-        ONLY_ACTIVE_ARCH=YES
-        GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
-        GCC_GENERATE_TEST_COVERAGE_FILES=YES
-        SWIFT_VERSION=${{ matrix.swift_version }}
         pod lib lint --verbose --allow-warnings
