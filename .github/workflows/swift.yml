@@ -57,17 +57,21 @@ jobs:
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showsdks
     - name: Show Available Destinations
       run: xcodebuild -project ${{ env.FRAMEWORK_NAME }}.xcodeproj -scheme '${{ env.FRAMEWORK_NAME }} ${{ matrix.scheme }}' -showdestinations
-    - name: Recover cached dependencies
+
+    - name: Recover Cached Carthage dependencies
       uses: actions/cache@v1
-      id: dependency-cache
+      id: carthage-cache
       with:
         path: Carthage/**/*
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-    - name: Print Carthage contents
+        key: ${{ runner.os }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v2
+    - name: Print Carthage contents after cache
       run: ls Carthage/**/*
     - name: Carthage Bootstrap
-      if: steps.dependency-cache.outputs.cache-hit != 'true'
+      if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds --platform ${{ matrix.scheme }}
+    - name: Print Carthage contents after bootstrap
+      run: ls Carthage/**/*
+
     - name: Build and Test
       run: |
         xcodebuild clean ${{ matrix.action }} \
