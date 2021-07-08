@@ -63,8 +63,8 @@ jobs:
       uses: actions/cache@v1
       id: carthage-cache
       with:
-        path: Carthage/**/*
-        key: ${{ runner.os }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v2
+        path: Carthage
+        key: ${{ matrix.scheme }}-carthage-${{ hashFiles('Cartfile.resolved') }}-cache_v3
     - name: Print Carthage contents after cache
       run: |
        if [[ -d Carthage ]]; then
@@ -72,7 +72,7 @@ jobs:
        fi
     - name: Carthage Bootstrap
       if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds
+      run: carthage bootstrap --no-use-binaries --use-xcframeworks --cache-builds --platform ${{ matrix.scheme }}
     - name: Print Carthage contents after bootstrap
       run: ls Carthage/**/*
 
