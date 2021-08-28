@@ -3,6 +3,7 @@
 **Breaking API Changes:**
 
 **API Changes:**
+- Add optional `label` property to `Thunk` that is used for the object `description`, e.g for logging/printing the thunk object (#50) - @DivineDominion
 
 - Remove deprecated `StateType` protocol requirement (#48) - @DivineDominion, @mjarvis
 
@@ -23,7 +24,7 @@
 **Other:**
 - Rename SwiftPM library to `ReSwiftThunk`, this makes naming consistent across all package manager (Cocoapods, Carthage and SwiftPM) (#42) - @jookes
 - `ExpectThunk`'s methods `dispatches` and `getsState` no longer have `@discardableResult` return values (#40) - @xavierLowmiller
--
+
 # 1.2.0
 
 **API Changes:**
